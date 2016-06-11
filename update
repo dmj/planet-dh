@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Timestamp: <2016-02-07 07:47:15 dmaus>
+#
+
+cd $(realpath $(dirname $0))
+
+/usr/bin/planet config.ini && /usr/bin/sitecopy -qq -r sitecopy.rc -u planet-dh

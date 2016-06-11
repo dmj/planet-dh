@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Timestamp: <2016-02-07 07:46:18 dmaus>
+#
+
+cd $(realpath $(dirname $0))
+
+/usr/bin/planet -x config.ini
