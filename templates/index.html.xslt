@@ -18,7 +18,7 @@
       <body>
         <ul class="inline">
           <li><a href="/">about</a></li>
-          <li><a href="blog">blog</a></li>
+          <li><a href="/blog">blog</a></li>
           <li>planet digital humanities</li>
         </ul>
         <div style="float: right; padding: 1em; max-width: 20%; ">
