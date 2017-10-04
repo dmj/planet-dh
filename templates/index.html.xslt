@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="../assets/style.css"/>
       </head>
       <body>
+        <img src="../assets/dmaus.svg" alt="Logo" style="position: fixed; float: left;">
         <div>
           <ul class="inline">
             <li><a href="/">about</a></li>
