@@ -16,26 +16,28 @@
         <link rel="stylesheet" type="text/css" href="../assets/style.css"/>
       </head>
       <body>
-        <ul class="inline">
-          <li><a href="/">about</a></li>
-          <li><a href="/blog">blog</a></li>
-          <li>planet digital humanities</li>
-        </ul>
-        <div style="float: right; padding: 1em; max-width: 20%; ">
-          <h2>Planet Digital Humanities</h2>
-          <ul>
-            <li><a href="index.atom">subscribe</a></li>
-            <li>powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a></li>
+        <div>
+          <ul class="inline">
+            <li><a href="/">about</a></li>
+            <li><a href="/blog">blog</a></li>
+            <li>planet digital humanities</li>
           </ul>
-          <h2>Subscriptions</h2>
-          <ul>
-            <xsl:for-each select="planet:source">
-              <xsl:sort select="planet:name"/>
-              <li><a href="{planet:link}" title="{planet:name}"><xsl:value-of select="planet:name"/></a></li>
-            </xsl:for-each>
-          </ul>
+          <div style="float: right; padding: 1em; max-width: 20%; ">
+            <h2>Planet Digital Humanities</h2>
+            <ul>
+              <li><a href="index.atom">subscribe</a></li>
+              <li>powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a></li>
+            </ul>
+            <h2>Subscriptions</h2>
+            <ul>
+              <xsl:for-each select="planet:source">
+                <xsl:sort select="planet:name"/>
+                <li><a href="{planet:link}" title="{planet:name}"><xsl:value-of select="planet:name"/></a></li>
+              </xsl:for-each>
+            </ul>
+          </div>
+          <xsl:apply-templates/>
         </div>
-        <xsl:apply-templates/>
       </body>
     </html>
   </xsl:template>
