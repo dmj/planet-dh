@@ -28,29 +28,20 @@
           ·
           <strong>Planet Digital Humanities</strong>
         </p>
-        <h1>Planet Digital Humanities</h1>
+        <h1>Planet Digital Humanities<img src="feed-icon-28x28.png" alt="Feed icon"/></h1>
         <p class="subtitle">A personal feed aggregator with a pretentious name</p>
-        <div id="content">
-          <xsl:apply-templates/>
-        </div>
-        <!-- <dl id="sidebar"> -->
-        <!--   <dt><xsl:value-of select="atom:title"/></dt> -->
-        <!--   <dd> -->
-        <!--     <ul> -->
-        <!--       <li><a href="index.atom">Subscribe</a></li> -->
-        <!--       <li>Powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a></li> -->
-        <!--     </ul> -->
-        <!--   </dd> -->
-        <!--   <dt>Subscriptions</dt> -->
-        <!--   <dd> -->
-        <!--     <ul> -->
-        <!--       <xsl:for-each select="planet:source"> -->
-        <!--         <xsl:sort select="planet:name"/> -->
-        <!--         <li><a href="{planet:link}" title="{planet:name}"><xsl:value-of select="planet:name"/></a></li> -->
-        <!--       </xsl:for-each> -->
-        <!--     </ul> -->
-        <!--   </dd> -->
-        <!-- </dl> -->
+        <p>
+          This <a href="https://en.wikipedia.org/wiki/Planet_(software)" target="_blank">Planet</a> aggregates news and
+          blog posts from the wider digital humanities community. It features smaller websites, journals and independent
+          bloggers that the <a href="http://dmaus.name" target="_blank">curator of the list</a> deems interesting. You
+          can <a href="index.atom">subscribe</a> to the planet's feed and/or <a
+          href="https://github.com/dmj/planet-dh/blob/master/subscriptions.ini">view the subscription list</a>. The
+          planet is powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a> and updated daily.
+        </p>
+        <p>
+          Last updated: <xsl:value-of select="substring(atom:updated, 1, 10)"/>
+        </p>
+        <xsl:apply-templates/>
       </body>
     </html>
   </xsl:template>
