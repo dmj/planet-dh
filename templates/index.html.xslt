@@ -57,12 +57,12 @@
 
   <xsl:template match="atom:entry">
     <section>
-      <small>
+      <h2><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h2>
+      <p class="subtitle">
         <xsl:value-of select="atom:source/planet:name"/>
         <xsl:text>, </xsl:text>
         <xsl:value-of select="atom:updated/@planet:format"/>
-      </small>
-      <h2><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h2>
+      </p>
     </section>
   </xsl:template>
 
