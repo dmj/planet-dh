@@ -15,46 +15,48 @@
         <meta name="referrer" content="no-referrer"/>
         <meta name="robots" content="noindex,nofollow"/>
         <title><xsl:value-of select="atom:title"/></title>
-        <link rel="stylesheet" href="../assets/tufte-css-1.4/tufte.css"/>
-        <link rel="stylesheet" href="../assets/tufte-override.css"/>
+        <link rel="stylesheet" href="../assets/style.css"/>
         <link rel="alternate" type="application/atom+xml" title="Subscribe to feed" href="index.atom"/>
       </head>
       <body>
-        <img id="logo" src="../assets/dmaus.svg"/>
-        <p>
-          <a href="..">Home</a>
-          ·
-          <a href="../blog">Blog</a>
-          ·
-          <strong>Planet Digital Humanities</strong>
-        </p>
-        <h1>Planet Digital Humanities<img src="feed-icon-28x28.png" alt="Feed icon"/></h1>
-        <p class="subtitle">A personal feed aggregator with a pretentious name</p>
-        <p>
-          This <a href="https://en.wikipedia.org/wiki/Planet_(software)" target="_blank">Planet</a> aggregates news and
-          blog posts from the wider digital humanities community. It features smaller websites, journals and independent
-          bloggers that the <a href="http://dmaus.name" target="_blank">curator of the list</a> deems interesting. You
-          can <a href="index.atom">subscribe</a> to the planet's feed and/or <a
-          href="https://github.com/dmj/planet-dh/blob/master/subscriptions.ini">view the subscription list</a>. The
-          planet is powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a> and updated daily.
-        </p>
-        <p>
-          Last updated: <xsl:value-of select="substring(atom:updated, 1, 10)"/>
-        </p>
+        <nav>
+          <ul>
+            <li><a href="..">Home</a></li>
+            <li><a href="../blog">Blog</a></li>
+            <li><a href="#">Planet Digital Humanities</a></li>
+          </ul>
+        </nav>
+        <header>
+          <h1>Planet Digital Humanities</h1>
+          <h2>A personal feed aggregator with a pretentious name</h2>
+        </header>
+        <section>
+          <p>
+            This <a href="https://en.wikipedia.org/wiki/Planet_(software)" target="_blank">Planet</a> aggregates news and
+            blog posts from the wider digital humanities community. It features smaller websites, journals and independent
+            bloggers that the <a href="http://dmaus.name" target="_blank">curator of the list</a> deems interesting. You
+            can <a href="index.atom">subscribe</a> to the planet's feed and/or <a
+            href="https://github.com/dmj/planet-dh/blob/master/subscriptions.ini">view the subscription list</a>. The
+            planet is powered by <a href="http://intertwingly.net/code/venus/">Planet Venus</a> and updated daily.
+          </p>
+          <p>
+            Last updated: <xsl:value-of select="substring(atom:updated, 1, 10)"/>
+          </p>
+        </section>
         <xsl:apply-templates/>
       </body>
     </html>
   </xsl:template>
 
   <xsl:template match="atom:entry">
-    <section>
-      <h2><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h2>
-      <p class="subtitle">
+    <article>
+      <h1><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h1>
+      <h2>
         <xsl:value-of select="atom:source/planet:name"/>
         <xsl:text>, </xsl:text>
         <xsl:value-of select="atom:updated/@planet:format"/>
-      </p>
-    </section>
+      </h2>
+    </article>
   </xsl:template>
 
   <xsl:template match="*" mode="content">
