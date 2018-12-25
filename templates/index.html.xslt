@@ -49,14 +49,14 @@
   </xsl:template>
 
   <xsl:template match="atom:entry">
-    <article>
+    <section>
       <h1><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h1>
-      <h2>
+      <p>
         <xsl:value-of select="atom:source/planet:name"/>
         <xsl:text>, </xsl:text>
         <xsl:value-of select="atom:updated/@planet:format"/>
-      </h2>
-    </article>
+      </p>
+    </section>
   </xsl:template>
 
   <xsl:template match="*" mode="content">
