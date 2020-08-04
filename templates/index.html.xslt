@@ -10,26 +10,31 @@
   <xsl:template match="atom:feed">
     <html>
       <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="referrer" content="no-referrer"/>
         <meta name="robots" content="noindex,nofollow"/>
+        <link rel="stylesheet" href="/assets/style.css"/>
         <title><xsl:value-of select="atom:title"/></title>
-        <link rel="stylesheet" href="../assets/style.css"/>
         <link rel="alternate" type="application/atom+xml" title="Subscribe to feed" href="index.atom"/>
       </head>
       <body>
+        <img src="/assets/dmaus.svg" id="logo"/>
+        <header>David Maus M. A.</header>
         <nav>
           <ul>
-            <li><a href="..">Home</a></li>
-            <li><a href="../blog">Blog</a></li>
-            <li><a href="#">Planet Digital Humanities</a></li>
+            <li>
+              <a id="nav-home" href="/">Home</a>
+            </li>
+            <li>
+              <a id="nav-blog" href="/blog">Blog</a>
+            </li>
+            <li>
+              <a id="nav-planet" href="/pdh">Planet Digital Humanities</a>
+            </li>
           </ul>
         </nav>
-        <header>
-          <h1>Planet Digital Humanities</h1>
-          <h2>A personal feed aggregator with a pretentious name</h2>
-        </header>
         <section>
           <p>
             This <a href="https://en.wikipedia.org/wiki/Planet_(software)" target="_blank">Planet</a> aggregates news and
@@ -50,23 +55,13 @@
 
   <xsl:template match="atom:entry">
     <section>
-      <h1><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h1>
-      <p>
+      <p class="subtitle">
         <xsl:value-of select="atom:source/planet:name"/>
         <xsl:text>, </xsl:text>
         <xsl:value-of select="atom:updated/@planet:format"/>
       </p>
+      <h1><a href="{atom:link[@type = 'text/html']/@href}"><xsl:value-of select="atom:title"/></a></h1>
     </section>
   </xsl:template>
-
-  <xsl:template match="*" mode="content">
-    <xsl:element name="{local-name()}">
-      <xsl:apply-templates mode="content"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="@*" mode="content"/>
-
-  <xsl:template match="text()"/>
 
 </xsl:transform>
